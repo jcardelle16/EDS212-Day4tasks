@@ -3,5 +3,35 @@ title: "Data Exploration"
 author: "Josephine Cardelle"
 format: html
 editor: visual
+editor_options: 
+  chunk_output_type: console
 ---
+
+```{r}
+library(tidyverse)
+library(skimr)
+library(GGally)        
+
+```
+
+```{r}
+names(diamonds)
+dim(diamonds)
+summary(diamonds)
+head(diamonds)
+tail(diamonds)
+skimr::skim(diamonds)
+```
+
+## Pairs Plot
+```{r}
+# create a pairs plot
+GGally::ggpairs(diamonds)
+
+# create scatterplot
+ggplot(diamonds, aes(x = carat, y = price)) + geom_point()
+
+# create histogram
+ggplot(diamonds, aes(x = carat)) + geom_histogram()
+```
 
